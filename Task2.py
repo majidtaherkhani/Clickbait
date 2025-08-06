@@ -81,7 +81,7 @@ def load_test_spoiler_types(path: str) -> dict:
 def make_df(path: str, *, test: bool = False, test_types: dict | None = None) -> pd.DataFrame:
     raw = read_jsonl(path)
     rows = []
-    for entry in enumerate(raw):
+    for entry in raw:
         uid = entry.get("uuid")
         post = entry.get("postText", "")
         title = entry.get("targetTitle", "")
@@ -251,3 +251,4 @@ def run_predict(model, tokenizer):
 if __name__ == "__main__":
     model, tokenizer = run_train()
     run_predict(model, tokenizer)
+
